@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block start %}
+<div class="container">
+    <form class="card shadow my-4 p-3 col-6 mx-auto" method="post" enctype="multipart/form-data">
+        <h2 class="text-center font-weight-bold">Register</h2>
+        <hr>
+        {% if messages %}
+        {{ message.tags }}
+        <div class="alert alert-warning" role="alert">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+          </div>
+        {% endif %}
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">First Name</label>
+                    <input type="text" class="form-control" required name="first_name" id="exampleInputEmail1"
+                        aria-describedby="emailHelp">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" required name="last_name" id="exampleInputEmail1"
+                        aria-describedby="emailHelp">
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            <input type="text" class="form-control" required name="username" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" required name="password" id="exampleInputPassword1">
+        </div>
+        <p>Already have an account? <a href="/login/">Login Here</a></p>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>
+{% endblock %}

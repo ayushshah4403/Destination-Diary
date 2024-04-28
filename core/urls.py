@@ -28,6 +28,9 @@ urlpatterns = [
     path('delete-destination/<id>/', delete_destination, name = "delete_destination"),
     path('update-destination/<id>/', update_destination, name = "update_destination"),
     path('places/', destinations, name = "home"),
+    path('login/', login_page, name = "login"),
+    path('logout/', logout_page, name = "login"),
+    path('register/', register_page, name = "register"),
 ]
 
 if settings.DEBUG:
